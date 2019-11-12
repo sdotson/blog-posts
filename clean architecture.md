@@ -127,7 +127,7 @@ The routers folder just includes the routes as well as controllers and request v
 
 ### Things we’ve learned
 
-At Upside we strive to learn and grow everyday, which means we frequntly get together for retrospectives to talk about how things went. The passion channeled into these discussions frequently resemble Thanksgiving dinners, except with a strong undercurrent of mutual respect and nobody's in tears at the end.
+At Upside we strive to learn and grow everyday, which means we frequently get together for retrospectives to talk about how things went. The passion channeled into these discussions frequently resemble Thanksgiving dinners, except with a strong undercurrent of mutual respect and nobody's in tears at the end.
 
 Here are a few takeways:
 
