@@ -113,7 +113,7 @@ const buildHappinessGenerator = (
 These are all expected to have tests and this is where the real power is revealed. Whereas in the past we’d have to use nock to intercept HTTP requests and create a whole bunch of fixture files, now we could create mock functions representing the injected dependencies, focusing our testing efforts on the logic and orchestration.
 
 ### Adaptors
-Adaptors are functions that encapsulate I/O, whether that is reading/writing from a data store, calling an API, shooting a firework into the air, or whatever silly example you can think of. These functions are meant to be very simple, with no business logic, and as a result, don’t need unit tests and should be excluded from code coverage.
+Adaptors are functions that encapsulate I/O, whether that is reading/writing from a data store, calling an API, shooting a firework into the air, or whatever silly example you can think of. These functions are meant to be very simple, with no business logic, and as a result don’t need unit tests because they wouldn't prove anything. They should also be excluded from code coverage.
 
 A edge case scenario we encountered was when we wanted to transform the data returned from an adaptor. Although this is business logic, we decided to group it with the adpator logic because it was tightly coupled to that concept. We tested adaptor transform functions and they were included in code coverage.
 
