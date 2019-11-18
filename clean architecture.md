@@ -1,6 +1,6 @@
 # Clean Architecture blog post draft
 
-This is a cautionary tale, but also a tale full of redemption, one that will re-invigorate your faith in software engineers and their ability to solve complex problems. I will describe the factors that led us down the road to perdition, the twinkle of inspiration that led us to adopting the clean architecture pattern, and finally some of our reflections looking back on the experience during a recent retrospective.
+This is a cautionary tale, but also a tale full of redemption; a tale that will re-invigorate your faith in software engineers and their ability to solve complex problems. I will describe the factors that led us down the road to perdition, the twinkle of inspiration that led us to adopting the clean architecture pattern, and finally some of our reflections looking back on the experience during a recent retrospective.
 
 ## Initial motivations
 Early on we decided to use [SuperTest](https://github.com/visionmedia/supertest), [nock](https://github.com/nock/nock), and fixture files for the integration tests in our various microservices. SuperTest is a library that facilitates the testing of Node HTTP servers. Nock is a way of intercepting various HTTP requests and returning mock data, represented by our fixture files. We felt good about testing various scenarios for all of our endpoints.
