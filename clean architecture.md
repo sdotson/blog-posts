@@ -141,4 +141,5 @@ Here are a few takeways:
 - **Be more thoughtful about dependency injection** - One particularly powerful point raised was that we might not need the flexibility afforded by the higher order functions in the glue file. If there is only one implementation of a function, do we need the additional complexity added by having a higher order function to create it? Further, some argued that the use of dependency injection implies that a function is interfacing directly with something in the outer ring of the dependency circle, i.e., a database connection, HTTP request, or some other side effect.
 
 ### Links for more information
-- https://www.freecodecamp.org/news/a-quick-introduction-to-clean-architecture-990c014448d2/
+- [A quick introduction to Clean Architecture](https://www.freecodecamp.org/news/a-quick-introduction-to-clean-architecture-990c014448d2/)
+- [Post from Robert Martin, the author himself](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
