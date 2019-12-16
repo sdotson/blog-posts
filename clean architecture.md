@@ -35,7 +35,7 @@ In addition, he proposed six principles for components:
 More concretely in terms of organization, clean architecture advocates for domain logic, interface adaptors, interfaces, entities, and use cases.
 
 ## Our implementation
-We decided to create a layered architecture organized by function. These functions are domain, adaptors, glue, entities, and interfaces. To make it clear what interfaces are implemented and to express our entities more elegantly we also started using typescript in our microservices.
+We decided to implement a pattern heavily influenced by Clean Architecture. We came up with a layered architecture organized by function, including domain, adaptors, glue, entities, and interfaces. We also started to use TypeScript to clarify what interfaces were implemented and express our entities more elegantly.
 
 ### Folder structure
 - domain
@@ -56,7 +56,7 @@ export interface Talent {
 ```
 
 ### Interfaces
-The interfaces describe the various inputs and outputs expected by the domain functions, including the higher order domain functions. We could have used typescript interfaces but instead opted for types, which we thought were simpler to use and understand.
+The interfaces describe the various inputs and outputs expected by the domain functions, including the higher order domain functions. We could have used TypeScript interfaces but instead opted for types, which we thought were simpler to use and understand.
 
 ```
 export type FunMaker = (
@@ -113,7 +113,7 @@ const buildHappinessGenerator = (
 These are all expected to have tests and this is where the real power is revealed. Whereas in the past we’d have to use nock to intercept HTTP requests and create a whole bunch of fixture files, now we could create mock functions representing the injected dependencies, focusing our testing efforts on the logic and orchestration.
 
 ### Adaptors
-Adaptors are functions that encapsulate I/O, whether that is reading/writing from a data store, calling an API, shooting a firework into the air, or whatever silly example you can think of. These functions are meant to be very simple, with no business logic, and as a result don’t need unit tests because they wouldn't prove anything. They should also be excluded from code coverage.
+Adaptors are functions that encapsulate I/O, whether that is reading/writing from a data store, calling an API, shooting a firework into the air, or whatever silly example you can think of. The 80/20 rule served us well here. We decided to focus our testing resources on domain business logic rather than adaptors. Testing adaptors would have involved more overhead and time with less benefit. We also excluded them from code coverage.
 
 A edge case scenario we encountered was when we wanted to transform the data returned from an adaptor. Although this is business logic, we decided to group it with the adpator logic because it was tightly coupled to that concept. We tested adaptor transform functions and they were included in code coverage.
 
@@ -126,14 +126,15 @@ Glue is where we use our factory functions to inject our dependencies and build 
 The routers folder just includes the routes as well as controllers and request validation. These should all be very thin.
 
 ### Things we’ve learned
-
 At Upside we strive to learn and grow everyday, which means we frequently get together for retrospectives to talk about how things went. The passion channeled into these discussions frequently resemble Thanksgiving dinners, except with a strong undercurrent of mutual respect and nobody's in tears at the end.
 
 Here are a few takeways:
 
 #### Good
 - Tests are less brittle.
+- Fewer fixtures files.
 - Interfaces and entities explicitly describing what things do and what they are.
+- Organizing the code into domain functions breaks the problem down into a series of sub-problems. This makes swapping out different adaptors and rearranging code much faster.
 - Easy to add tests and alternative implementations
 
 #### Things we can improve
