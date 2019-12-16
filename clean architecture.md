@@ -32,7 +32,7 @@ In addition, he proposed six principles for components:
 - **Stable dependencies** - Less stable components should depend on more stable components.
 - **Stable abstractions** - Stable components should be abstract and and less table components whould be more concrete.
 
-More concretely in terms of organization, clean architecture advocates for domain logic, interface adaptors, interfaces, entities, and use cases.
+Clean architecture advocates for organizing code into domain logic, interface adaptors, interfaces, entities, and use cases.
 
 ## Our implementation
 We decided to implement a pattern heavily influenced by Clean Architecture. We came up with a layered architecture organized by function, including domain, adaptors, glue, entities, and interfaces. We also started to use TypeScript to clarify what interfaces were implemented and express our entities more elegantly.
