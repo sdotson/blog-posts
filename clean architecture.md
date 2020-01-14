@@ -112,6 +112,8 @@ const buildHappinessGenerator = (
 
 These are all expected to have tests and this is where the real power is revealed. Whereas in the past we’d have to use nock to intercept HTTP requests and create a whole bunch of fixture files, now we could create mock functions representing the injected dependencies, focusing our testing efforts on the logic and orchestration.
 
+This pattern also gives us a lot of flexibility. For example, in the `buildHappinessGenerator` example above, we can generate happiness differently for each use case, finely tuning the precise manner in which we `determinePurpose`, `makeFun`, `makeRelationships`, `makeMoney`, and `seekHelp` to ultimately `rageAgainstNilism`.
+
 ### Adaptors
 Adaptors are functions that encapsulate I/O, whether that is reading/writing from a data store, calling an API, shooting a firework into the air, or whatever silly example you can think of. The 80/20 rule served us well here. We decided to focus our testing resources on domain business logic rather than adaptors. Testing adaptors would have involved more overhead and time with less benefit. We also excluded them from code coverage.
 
