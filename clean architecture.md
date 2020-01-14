@@ -7,7 +7,7 @@ Early on we decided to use [SuperTest](https://github.com/visionmedia/supertest)
 
 Those were simpler times. Our product was simpler. Our concerns were simpler. The sun even seemed simpler back then. Although if we looked a little closer at that great fiery orb in the sky, we'd see hidden complexity at unimaginable scale, including a solar dynamo generating a magnetic field, solar flares leaping majestically into the cosmos, and hydrogen fusion generating the heat and light that sustains us all.
 
-Intoxicated by our own optimism, we gleefullly added tests and fixtures, and bowed before the golden idol of our own creation. Off in the distance, old man fate was already descending the mountain, and some time later, would catch us in the midst of our idolatrous revelry. The moment of reckoning awaited us all.
+Intoxicated by our own optimism, we gleefullly added tests and fixtures, and bowed before the golden idol of our own creation. Off in the distance, old man fate was already descending the mountain, and some time later, would catch us in the midst of our idolatrous revelry. Our moment of reckoning was coming.
 
 The complexity of our microservices grew, and eventually, some of the endpoints were orchestrating a dozen or more requests. Each possible request and response needed a fixture file. Every new scenario needed a new fixture file. New version of the endpoint? Most of the time this meant a new fixture file. Sometimes the fixture files needed fixture files. These fixture files slowly grew out of date, as our services continued to evolve, much like old yearbook photos look less and less like their subjects as time marches on.
 
@@ -30,7 +30,7 @@ In addition, he proposed six principles for components:
 - **Common reuse** - No unneccesary dependencies.
 - **Acyclic dependencies** - Avoid cycles by using the dependency inversion principle or creating a new component with shared functionality that other components depend upon.
 - **Stable dependencies** - Less stable components should depend on more stable components.
-- **Stable abstractions** - Stable components should be abstract and and less table components whould be more concrete.
+- **Stable abstractions** - Stable components should be abstract and less stable components should be more concrete.
 
 Clean architecture advocates for organizing code into domain logic, interface adaptors, interfaces, entities, and use cases.
 
@@ -120,7 +120,7 @@ A edge case scenario we encountered was when we wanted to transform the data ret
 ### Glue
 Glue “glues” our different injected dependencies together to create a specific implementation strategy with a domain higher order function.
 
-Glue is where we use our factory functions to inject our dependencies and build the specific implementation strategies we want to use. The dependencies can be adaptors or domain functions. The thought is to isolate and decouple concerns so that the business logic does not have to care about the specific implementation details, but rather, the interface for that implementation.
+Glue is where we use our factory functions to inject our dependencies and build the specific implementation strategies we want to use. The dependencies can be adaptors or domain functions. The rationale behind the glue is to isolate and decouple concerns so that the business logic does not have to care about the specific implementation details, but rather, the interface for that implementation.
 
 ### Routers
 The routers folder just includes the routes as well as controllers and request validation. These should all be very thin.
